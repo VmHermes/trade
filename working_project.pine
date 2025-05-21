@@ -23,7 +23,7 @@ showIndicators = input(true, title = 'Show Indicators')
 //=====================================================================
 tooltip_macd = '### 1. **MACD (Moving Average Convergence Divergence)**- **Al Sinyali (Buy Signal)**:  - MACD yukai kesişim (MACD çizgisi sinyal çizgisini yukarı kesti)  - Histogram pozitif (Histogram pozitif bölgede)- **Sat Sinyali (Sell Signal)**: - MACD aşağı kesişim (MACD çizgisi sinyal çizgisini aşağı kesti) - Histogram negatif (Histogram negatif bölgede)'
 //=====================================================================
-tooltip_adxaciklamali = 'Evet, ADX, +DI ve -DI göstergelerini kullanarak trendin yönü ve gücü hakkında daha iyi bir anlayış elde edebiliriz. Örneklerle açıklayalım:### 1. Yükseliş Trendi:- **+DI 25, -DI 20, ADX 40**  - **+DI 25:** Pozitif yönlü hareket, fiyatların yükselişte olduğunu gösterir.  - **-DI 20:** Negatif yönlü hareket daha zayıf.  - **ADX 40:** Güçlü bir trend var. Bu durumda, yükseliş trendinin güçlü olduğunu ve devam edeceğini anlarız.### 2. Düşüş Trendi:- **+DI 10, -DI 30, ADX 40**  - **+DI 10:** Pozitif yönlü hareket zayıf.  - **-DI 30:** Negatif yönlü hareket, fiyatların düşüşte olduğunu gösterir.  - **ADX 40:** Güçlü bir trend var. Bu durumda, düşüş trendinin güçlü olduğunu ve devam edeceğini anlarız.### 3. Zayıf Yükseliş Trendi:- **+DI 60, -DI 10, ADX 19**  - **+DI 60:** Pozitif yönlü hareket, fiyatların yükselişte olduğunu gösterir.  - **-DI 10:** Negatif yönlü hareket çok zayıf.  - **ADX 19:** Trend zayıf. Bu durumda, yükseliş trendi olsa da, bu trendin güçlü olmadığını anlarız.### 4. Zayıf Düşüş Trendi:- **-DI 40, +DI 5, ADX 19**  - **-DI 40:** Negatif yönlü hareket, fiyatların düşüşte olduğunu gösterir.  - **+DI 5:** Pozitif yönlü hareket çok zayıf.  - **ADX 19:** Trend zayıf. Bu durumda, düşüş trendi olsa da, bu trendin güçlü olmadığını anlarız.### ÖzetBu strateji ile, ADX, +DI ve -DI göstergelerini kullanarak trendin yönü ve gücü hakkında aşağıdaki gibi sonuçlar çıkarabiliriz:- **ADX > 20:** Güçlü trend (yönüne +DI ve -DI karar verir).- **ADX < 20:** Zayıf trend (yönüne +DI ve -DI karar verir).- **+DI > -DI:** Yükseliş trendi.- **-DI > +DI:** Düşüş trendi.Bu strateji, teknik analizde trend yönü ve gücünü belirlemek için oldukça etkilidir. doğru anladığınızı ve uyguladığınızı gösterir.'
+tooltip_adxaciklamali = 'Evet, ADX, +DI ve -DI göstergelerini kullanarak trendin y ve gücü hakkında daha iyi bir anlayış elde edebiliriz. Örneklerle açıklayalım:### 1. UP Trendi:- **+DI 25, -DI 20, ADX 40**  - **+DI 25:** Pozitif yönlü hareket, fiyatların UPte olduğunu gösterir.  - **-DI 20:** Negatif yönlü hareket daha zayıf.  - **ADX 40:** Güçlü bir trend var. Bu durumda, UP trendinin güçlü olduğunu ve devam edeceğini anlarız.### 2. DW Trendi:- **+DI 10, -DI 30, ADX 40**  - **+DI 10:** Pozitif yönlü hareket zayıf.  - **-DI 30:** Negatif yönlü hareket, fiyatların DWte olduğunu gösterir.  - **ADX 40:** Güçlü bir trend var. Bu durumda, DW trendinin güçlü olduğunu ve devam edeceğini anlarız.### 3. Zayıf UP Trendi:- **+DI 60, -DI 10, ADX 19**  - **+DI 60:** Pozitif yönlü hareket, fiyatların UPte olduğunu gösterir.  - **-DI 10:** Negatif yönlü hareket çok zayıf.  - **ADX 19:** Trend zayıf. Bu durumda, UP trendi olsa da, bu trendin güçlü olmadığını anlarız.### 4. Zayıf DW Trendi:- **-DI 40, +DI 5, ADX 19**  - **-DI 40:** Negatif yönlü hareket, fiyatların DWte olduğunu gösterir.  - **+DI 5:** Pozitif yönlü hareket çok zayıf.  - **ADX 19:** Trend zayıf. Bu durumda, DW trendi olsa da, bu trendin güçlü olmadığını anlarız.### ÖzetBu strateji ile, ADX, +DI ve -DI göstergelerini kullanarak trendin y ve gücü hakkında aşağıdaki gibi sonuçlar çıkarabiliriz:- **ADX > 20:** Güçlü trend (yne +DI ve -DI karar verir).- **ADX < 20:** Zayıf trend (yne +DI ve -DI karar verir).- **+DI > -DI:** UP trendi.- **-DI > +DI:** DW trendi.Bu strateji, teknik analizde TRND ve gücünü belirlemek için oldukça etkilidir. doğru anladığınızı ve uyguladığınızı gösterir.'
 //=====================================================================
 //=====================================================================
 
@@ -50,9 +50,6 @@ else if dynamic_text_size == 'large'
 else if dynamic_text_size == 'huge'
     text_size_dynamic := size.huge
     text_size_dynamic
-    //=====================================================================
-    //=====================================================================
-    //=====================================================================
     //=====================================================================
     //=====================================================================
     // Güncel fiyatı al ve goster hucre icinde 
@@ -210,8 +207,6 @@ rsi_val = f_rsi(close, rsi_length)
 // ======================================
 // MACD Hesaplama
 // ======================================
-// f_macd(val, fast_length, slow_length, signal_length) =>
-//     ta.macd(val, fast_length, slow_length, signal_length)
 
 // MACD Değerleri
 [macd_line, signal_line, macd_hist] = f_macd(close, macd_fast, macd_slow, macd_signal)
@@ -219,10 +214,10 @@ rsi_val = f_rsi(close, rsi_length)
 // MACD Durum Belirleme
 var string macd_status = na
 if macd_hist > 0
-    macd_status := 'Yükseliş'
+    macd_status := 'UP'
     macd_status
 else if macd_hist < 0
-    macd_status := 'Düşüş'
+    macd_status := 'DW'
     macd_status
 else
     macd_status := 'Nötr'
@@ -263,26 +258,18 @@ oversold = 20
 // Trend Belirleme
 var string trend = na
 if stoch_k_val > stoch_d_val and stoch_k_val < oversold
-    trend := 'Yükseliş'
+    trend := 'UP'
     trend
 else if stoch_k_val < stoch_d_val and stoch_k_val > overbought
-    trend := 'Düşüş'
+    trend := 'DW'
     trend
 else
     trend := 'Nötr'
     trend
 
 // // Trend Durumunu Görselleştirme
-bgcolor(trend == 'Yükseliş' ? #ff07071a : trend == 'Düşüş' ? #00ff1e1a : na)
-// plot(stoch_k_val, color=color.blue, title="%K")
-// plot(stoch_d_val, color=color.red, title="%D")
+bgcolor(trend == 'UP' ? #ff07071a : trend == 'DW' ? #00ff1e1a : na)
 
-
-
-// ====================================================
-// ====================================================
-// ====================================================
-// ====================================================
 // ====================================================
 // 6. ATR Hesaplamaları
 // ====================================================
@@ -370,14 +357,15 @@ normalized_score = (kompozit_skor + 1) / 2 // Skoru 0 ile 1 arasında normalize 
 // 11. Tablonun Oluşturulması
 var table_id = table.new(position.bottom_left, 20, 17, border_width = 1)
 
-// RSI yönünü belirleme
-rsi_direction = rsi_val > ta.rsi(close[1], rsi_length) ? 'Yükseliş' : rsi_val < ta.rsi(close[1], rsi_length) ? 'Düşüş' : 'Nötr'
+// RSI ynü belirleme
+rsi_prev = ta.rsi(close[1], rsi_length)
+rsi_direction = rsi_val > rsi_prev ? 'UP' : rsi_val < rsi_prev ? 'DW' : 'Nötr'
 
 // 12. Hücrelerin Çizilmesi
 // 📌 Kompozit Skor Açıklaması (Tooltip)
 tooltip_kompozit = "📊 Kompozit Skor: Farklı göstergelerin birleşimiyle hesaplanır.\n\n" +
-                   "✅ Pozitif (Yeşil): Genel olarak yükseliş sinyali.\n" +
-                   "⚠️ Negatif (Kırmızı): Genel olarak düşüş sinyali.\n" +
+                   "✅ Pozitif (Yeşil): Genel olarak UP sinyali.\n" +
+                   "⚠️ Negatif (Kırmızı): Genel olarak DW sinyali.\n" +
                    "🔸 Nötr (Sarı): Belirsiz piyasa koşulları."
 
 // 📌 Skor Renk ve İkon Ayarlaması
@@ -392,12 +380,12 @@ table.cell(table_id, 0, 1, text = kompozit_icon + " " + str.tostring(kompozit_sk
 // 📌 Hacim Açıklaması (Tooltip)
 tooltip_volume1 = "📊 Hacim Verisi:\n\n" +
                  "✅ Yeşil: **Hacim artışı (Alıcı baskın)** 📈\n" +
-                 "❌ Kırmızı: **Hacim düşüşü (Satıcı baskın)** 📉\n" +
+                 "❌ Kırmızı: **Hacim DWü (Satıcı baskın)** 📉\n" +
                  "⚠️ Sarı: **Hacim sabit, düşük volatilite** ⚖️"
 
 // 📌 Hacim Renk ve İkon Ayarlaması
 volume_color1 = volume_data > previous_volume ? color.green : volume_data < previous_volume ? color.red : color.yellow
-volume_icon = volume_data > previous_volume ? "📈 Artış" : volume_data < previous_volume ? "📉 Düşüş" : "⚖️ Sabit"
+volume_icon = volume_data > previous_volume ? "📈 Artış" : volume_data < previous_volume ? "📉 DW" : "⚖️ Sabit"
 
 // 📌 Tablo Güncellemesi
 table.cell(table_id, 2, 0, text = '📊 Hacim', text_color = color.black, bgcolor = color.white, tooltip = tooltip_volume1)
@@ -439,7 +427,7 @@ var table_id4 = table.new(position.bottom_right, 23, 17, border_width = 1)
 // ======================================
 if bar_index == 0
     table.cell(table_id4, 13, 0, text = 'ATR', text_color = color.black, bgcolor = color.white)
-    table.cell(table_id4, 14, 0, text = 'ATR Durumu', text_color = color.black, bgcolor = color.white)
+    table.cell(table_id4, 14, 0, text = 'ATR↓/↑', text_color = color.black, bgcolor = color.white)
 
 table.cell(table_id4, 13, 1, text = str.tostring(atr_val, format.mintick), text_color = color.black, bgcolor = color.white)
 table.cell(table_id4, 14, 1, text = atr_status, text_color = color.black, bgcolor = atr_status == 'Yüksek' ? color.red : atr_status == 'Düşük' ? color.green : color.yellow)
@@ -454,10 +442,10 @@ table.cell(table_id4, 15, 1, text = str.tostring(current_price, format.mintick),
 //=====================================================================                                                                                      
 // 📌 MACD Tablo Başlığı (Sadece İlk Çubukta Çalıştır)
 if bar_index == 0
-    table.cell(table_id4, 1, 0, text="MC Line", text_color=color.blue, bgcolor=color.white, tooltip=tooltip_macd)
-    table.cell(table_id4, 2, 0, text="MCD Snl", text_color=color.red, bgcolor=color.white)
-    table.cell(table_id4, 3, 0, text="MCD His", text_color=color.green, bgcolor=color.white)
-    table.cell(table_id4, 4, 0, text="MACD Durumu", text_color=color.black, bgcolor=color.white)
+    table.cell(table_id4, 1, 0, text="MCD", text_color=color.blue, bgcolor=color.white, tooltip=tooltip_macd)
+    table.cell(table_id4, 2, 0, text="MSGL", text_color=color.red, bgcolor=color.white)
+    table.cell(table_id4, 3, 0, text="MHIS", text_color=color.green, bgcolor=color.white)
+
 
 // 📌 MACD Değerlerini Tabloya Yazdır
 table.cell(table_id4, 1, 1, text=str.tostring(macd_line, format.mintick), text_color=color.blue, bgcolor=color.white)
@@ -467,20 +455,14 @@ table.cell(table_id4, 2, 1, text=str.tostring(signal_line, format.mintick), text
 hist_color = macd_hist > 0 ? color.green : macd_hist < 0 ? color.red : color.yellow
 table.cell(table_id4, 3, 1, text=str.tostring(macd_hist, format.mintick), text_color=color.black, bgcolor=hist_color)
 
-// MACD Durum Rengi
-status_color = macd_status == "Yükseliş" ? color.green : macd_status == "Düşüş" ? color.red : color.yellow
-table.cell(table_id4, 4, 1, text=macd_status, text_color=color.black, bgcolor=status_color)
-
-
 // ======================================
 // Stockastik rsi
 // ======================================
 // Tabloda Görüntüleme
 // 📌 Stochastic Tablo Başlığı (Sadece İlk Çubukta Çalıştır)
 if bar_index == 0
-    table.cell(table_id4, 5, 0, text="Stoch %K", text_color=color.orange, bgcolor=color.white)
-    table.cell(table_id4, 6, 0, text="Stoch %D", text_color=color.red, bgcolor=color.white)
-    table.cell(table_id4, 7, 0, text="Stoch Trend", text_color=color.black, bgcolor=color.white)
+    table.cell(table_id4, 5, 0, text="ST %K", text_color=color.orange, bgcolor=color.white)
+    table.cell(table_id4, 6, 0, text="ST %D", text_color=color.red, bgcolor=color.white)
 
 // 📌 Stochastic %K ve %D Değerlerini Tabloya Yazdır
 stoch_k_color = stoch_k_val > 80 ? color.red : stoch_k_val < 20 ? color.green : color.yellow
@@ -489,9 +471,6 @@ stoch_d_color = stoch_d_val > 80 ? color.red : stoch_d_val < 20 ? color.green : 
 table.cell(table_id4, 5, 1, text=str.tostring(stoch_k_val, format.mintick), text_color=color.black, bgcolor=stoch_k_color)
 table.cell(table_id4, 6, 1, text=str.tostring(stoch_d_val, format.mintick), text_color=color.black, bgcolor=stoch_d_color)
 
-// 📌 Stochastic Trend Belirleme ve Renklendirme
-trend_color_stockastick = trend == "Yükseliş" ? color.green : trend == "Düşüş" ? color.red : color.yellow
-table.cell(table_id4, 7, 1, text=trend, text_color=color.black, bgcolor=trend_color_stockastick)
 // ====================================================================
 //  Rsi
 // RSI Hesaplama ve Gösterimi
@@ -499,13 +478,12 @@ table.cell(table_id4, 7, 1, text=trend, text_color=color.black, bgcolor=trend_co
 // 📌 RSI Tablo Başlığı (Sadece İlk Çubukta Çalıştır)
 if bar_index == 0
     table.cell(table_id4, 8, 0, text="RSI", text_color=color.purple, bgcolor=color.white)
-    table.cell(table_id4, 9, 0, text="RSI Yön", text_color=color.blue, bgcolor=color.white)
 
 // 📌 RSI Değerini Belirleme ve Tabloya Yazdırma
 rsi_color = rsi_val > rsiOverbought ? color.red : rsi_val < rsiOversold ? color.green : color.yellow
 
 table.cell(table_id4, 8, 1, text=str.tostring(rsi_val, format.mintick), text_color=color.purple, bgcolor=rsi_color)
-table.cell(table_id4, 9, 1, text=rsi_direction, text_color=color.black, bgcolor=color.white)
+
 // ====================================================================
 // 📌 EMA & SMA Değerlerini Tabloya Yazdırma
 // ====================================================================
@@ -513,7 +491,7 @@ table.cell(table_id4, 9, 1, text=rsi_direction, text_color=color.black, bgcolor=
 if bar_index == 0
     table.cell(table_id4, 10, 0, text="SMA", text_color=color.blue, bgcolor=color.white)
     table.cell(table_id4, 11, 0, text="EMA", text_color=color.red, bgcolor=color.white)
-    table.cell(table_id4, 12, 0, text="ENA 🔀 SMA ", text_color=color.rgb(27, 182, 68), bgcolor=color.white)
+    table.cell(table_id4, 12, 0, text="E 🔀 S ", text_color=color.rgb(27, 182, 68), bgcolor=color.white)
 
 // 📌 SMA & EMA Renk Belirleme
 sma_color = sma_val > close ? color.red : sma_val < close ? color.green : color.yellow
@@ -549,20 +527,20 @@ if enable_blink
 var table2_id = table.new(position.top_center, 40, 40, border_width = 1)
 
 // 📌 Açıklama metni
-tooltip_fibo = 'Fibonacci Geri Çekilme Seviyeleri:\n\n' + '- %38.2, %50, %61.8 seviyelerinde destek/direnç olabilir.\n' + '- Bu seviyelerde kırılmalar veya dönüşler trend değişikliklerini işaret edebilir.'
+tooltip_fibo = 'Fibonacci Geri Çekilme Seviyeleri:\n\n' + '- %38.2, %50, %61.8 seviyelerinde destek/direnç olabilir.\n' + '- Bu seviyelerde kırılmalar veya dşler trend değişikliklerini işaret edebilir.'
 
 // 📌 Renk belirleme fonksiyonu
-f_getBBColor(level, close) =>
-    level > close ? bool(blink) ? color.red : color.white : level < close ? bool(blink) ? color.green : color.white : bool(blink) ? color.yellow : color.white
+f_getBBColor(level, c) =>
+    level > c ? bool(blink) ? color.red : color.white : level < c ? bool(blink) ? color.green : color.white : bool(blink) ? color.yellow : color.white
 
 // 📌 Bollinger Bands seviyelerini tabloya ekleme
-table.cell(table2_id, 0, 1, text = 'BB Üst', text_color = color.blue, bgcolor = color.white, tooltip = tooltip_fibo)
+table.cell(table2_id, 0, 1, text = 'BBU', text_color = color.blue, bgcolor = color.white, tooltip = tooltip_fibo)
 table.cell(table2_id, 1, 1, text = str.tostring(bb_upper, format.mintick), text_color = color.black, bgcolor = f_getBBColor(bb_upper, close))
 
-table.cell(table2_id, 0, 2, text = 'BB Orta', text_color = color.blue, bgcolor = color.white)
+table.cell(table2_id, 0, 2, text = 'BBO', text_color = color.blue, bgcolor = color.white)
 table.cell(table2_id, 1, 2, text = str.tostring(bb_middle, format.mintick), text_color = color.black, bgcolor = f_getBBColor(bb_middle, close))
 
-table.cell(table2_id, 0, 3, text = 'BB Alt', text_color = color.blue, bgcolor = color.white)
+table.cell(table2_id, 0, 3, text = 'BBA', text_color = color.blue, bgcolor = color.white)
 table.cell(table2_id, 1, 3, text = str.tostring(bb_lower, format.mintick), text_color = color.black, bgcolor = f_getBBColor(bb_lower, close))
 //=====================================================================                                                                                      
 
@@ -577,10 +555,10 @@ alertcondition(sellSignal, title = 'SuperTrend Sell Alert', message = 'SuperTren
 
 // Trigger alerts
 if buySignal and barstate.isrealtime
-    alert('SuperTrend Buy Signal RSI: ' + str.tostring(rsiValue, '#.##') + ' MACD: ' + str.tostring(macdHist, '#.#####'), alert.freq_once_per_bar_close)
+    alert('SuperTrend Buy Signal RSI: ' + str.tostring(rsiValue, '#.##') + ' MCD: ' + str.tostring(macdHist, '#.#####'), alert.freq_once_per_bar_close)
 
 if sellSignal and barstate.isrealtime
-    alert('SuperTrend Sell Signal RSI: ' + str.tostring(rsiValue, '#.##') + ' MACD: ' + str.tostring(macdHist, '#.#####'), alert.freq_once_per_bar_close)
+    alert('SuperTrend Sell Signal RSI: ' + str.tostring(rsiValue, '#.##') + ' MCD: ' + str.tostring(macdHist, '#.#####'), alert.freq_once_per_bar_close)
     //=====================================================================                                                                                      
 
 // ======================================
@@ -605,54 +583,43 @@ lowest_low = ta.lowest(low, 100)
 highest_high_val = ta.highest(highest_high, 100)
 lowest_low_val = ta.lowest(lowest_low, 100)
 
-// Eğer fiyatlar hala `na` ise, son 100 çubuğun en yüksek ve en düşük fiyatlarını kullan
-if na(highest_high_val) or na(lowest_low_val)
-    highest_high_val := ta.highest(high, 100)
-    lowest_low_val := ta.lowest(low, 100)
-    lowest_low_val
+hh = ta.highest(high, 100)
+ll = ta.lowest(low, 100)
+
+highest_high_val := na(highest_high_val) ? hh : highest_high_val
+lowest_low_val := na(lowest_low_val) ? ll : lowest_low_val
 
 // Fibonacci seviyelerini hesaplama
 [level_0, level_1, level_2, level_3, level_4, level_5] = fibonacci_levels(highest_high_val, lowest_low_val)
 
-// Trend Yönünü Belirleme
-trend_direction = na(close[1]) ? na : close > close[1] ? 'Yükseliş' : 'Düşüş'
+// TRNDnü Belirleme
+trend_direction = na(close[1]) ? na : close > close[1] ? 'UP' : 'DW'
 
 
 // 📌 Fibonacci seviyelerini tabloya ekleme
 if bar_index == 0
-    table.cell(table2_id, 2, 1, text="🔹 Fib 0%", text_color=color.blue, bgcolor=color.white)
-    table.cell(table2_id, 2, 2, text="🔸 Fib 23.6%", text_color=color.blue, bgcolor=color.white)
-    table.cell(table2_id, 2, 3, text="🔹 Fib 38.2%", text_color=color.blue, bgcolor=color.white)
-    table.cell(table2_id, 4, 1, text="🔸 Fib 50%", text_color=color.blue, bgcolor=color.white)
-    table.cell(table2_id, 4, 2, text="🔹 Fib 61.8%", text_color=color.blue, bgcolor=color.white)
-    table.cell(table2_id, 4, 3, text="🔸 Fib 100%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 2, 1, text="🔹 F 0%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 2, 2, text="🔸 F 23.6%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 2, 3, text="🔹 F 38.2%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 4, 1, text="🔸 F 50%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 4, 2, text="🔹 F 61.8%", text_color=color.blue, bgcolor=color.white)
+    table.cell(table2_id, 4, 3, text="🔸 F 100%", text_color=color.blue, bgcolor=color.white)
 
 // 📌 Fibonacci seviyelerini tabloya ekleme (Değerler)
-table.cell(table2_id, 3, 1, text=str.tostring(level_0, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
+table.cell(table2_id, 3, 1, text=str.tostring(level_0, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
-table.cell(table2_id, 3, 2, text=str.tostring(level_1, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
+table.cell(table2_id, 3, 2, text=str.tostring(level_1, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
-table.cell(table2_id, 3, 3, text=str.tostring(level_2, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
+table.cell(table2_id, 3, 3, text=str.tostring(level_2, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
-table.cell(table2_id, 5, 1, text=str.tostring(level_3, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
+table.cell(table2_id, 5, 1, text=str.tostring(level_3, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
-table.cell(table2_id, 5, 2, text=str.tostring(level_4, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
+table.cell(table2_id, 5, 2, text=str.tostring(level_4, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
-table.cell(table2_id, 5, 3, text=str.tostring(level_5, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 Yükseliş" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
-
-// // Mevcut zaman dilimindeki hacim verisini kullanma
-// volume_data = request.security(syminfo.tickerid, timeframe, volume)
-// previous_volume = request.security(syminfo.tickerid, timeframe, volume[1])
+table.cell(table2_id, 5, 3, text=str.tostring(level_5, format.mintick), text_color=color.black, text_halign=text.align_right,    bgcolor=trend_direction == "📈 UP" ? (blink == 1 ? color.green : color.white) : (blink == 1 ? color.red : color.white))
 
 // //  tablo cizimi metin olarak gösterme
 var ttable_id = table.new(position.middle_right, 100, 100, border_width = 1)
-// // Hacim verisini renklendirme
-// volume_color = volume_data > previous_volume ? color.green : color.red
-// // Eğer hacim değeri önceki çubuğun hacim değerinden büyükse yeşil, küçükse kırmızı olarak renklendiriyoruz
-// table.cell(ttable_id, 0, 6, text="Volume", text_color=color.black, bgcolor=color.white)
-// // "Volume" metninin arka plan rengini beyaz, yazı rengini siyah olarak ayarlıyoruz
-// table.cell(ttable_id, 1, 6, text=str.tostring(volume_data, format.volume), text_color=color.black, bgcolor=volume_color)
-// // Hacim değerini gösteren hücreyi renklendiriyoruz. Hacim artış gösteriyorsa yeşil, azalış gösteriyorsa kırmızı olarak ayarlıyoruz
 
 // Create table
 var table_id5 = table.new(position.middle_left, 100, 100, border_width = 1)
@@ -669,7 +636,7 @@ ma3_trend = ma3 > ma3[1] ? 'Up' : ma3 < ma3[1] ? 'Down' : 'Flat'
 
     // 📌 MA Açıklamaları (Tooltip)
 tooltip_ma5 = "📏 MA 5: 5 periyotluk hareketli ortalama\nKısa vadeli trendi gösterir."
-tooltip_ma8 = "📏 MA 8: 8 periyotluk hareketli ortalama\nDaha dengeli kısa vadeli trend göstergesi."
+tooltip_ma8 = "📏 MA 8: 8 periyotluk hareketli ortalama\nDaha dengeli kısa vadeli TRNDöstergesi."
 tooltip_ma13 = "📏 MA 13: 13 periyotluk hareketli ortalama\nOrta vadeli trend takibi için kullanılır."
 
 // 📌 MA Başlıkları + Tooltip Eklenmiş
@@ -680,22 +647,18 @@ if bar_index == 0
 
 // 📌 MA Değerlerini Tabloya Ekleme
 table.cell(table2_id, 7, 1, text = str.tostring(ma1, format.mintick), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
-table.cell(table2_id, 7, 2, text = ma1_trend == "Up" ? "📈 Yükseliş" : ma1_trend == "Down" ? "📉 Düşüş" : "▬ Nötr",     text_color = color.black, bgcolor = ma1_trend == "Up" ? color.green : ma1_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
+table.cell(table2_id, 7, 2, text = ma1_trend == "Up" ? "📈 UP" : ma1_trend == "Down" ? "📉 DW" : "▬ Nötr",     text_color = color.black, bgcolor = ma1_trend == "Up" ? color.green : ma1_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
 table.cell(table2_id, 7, 3, text = str.tostring(timeframe.period), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
 
 table.cell(table2_id, 8, 1, text = str.tostring(ma2, format.mintick), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
-table.cell(table2_id, 8, 2, text = ma2_trend == "Up" ? "📈 Yükseliş" : ma2_trend == "Down" ? "📉 Düşüş" : "▬ Nötr",     text_color = color.black, bgcolor = ma2_trend == "Up" ? color.green : ma2_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
+table.cell(table2_id, 8, 2, text = ma2_trend == "Up" ? "📈 UP" : ma2_trend == "Down" ? "📉 DW" : "▬ Nötr",     text_color = color.black, bgcolor = ma2_trend == "Up" ? color.green : ma2_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
 table.cell(table2_id, 8, 3, text = str.tostring(timeframe.period), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
 
 table.cell(table2_id, 9, 1, text = str.tostring(ma3, format.mintick), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
-table.cell(table2_id, 9, 2, text = ma3_trend == "Up" ? "📈 Yükseliş" : ma3_trend == "Down" ? "📉 Düşüş" : "▬ Nötr",     text_color = color.black, bgcolor = ma3_trend == "Up" ? color.green : ma3_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
+table.cell(table2_id, 9, 2, text = ma3_trend == "Up" ? "📈 UP" : ma3_trend == "Down" ? "📉 DW" : "▬ Nötr",     text_color = color.black, bgcolor = ma3_trend == "Up" ? color.green : ma3_trend == "Down" ? color.red : color.gray, text_halign = text.align_center)
 table.cell(table2_id, 9, 3, text = str.tostring(timeframe.period), text_color = color.black, bgcolor = color.white, text_halign = text.align_center)
 
 
-// // Plotting the MAs for visualization
-// plot(ma1, title="MA 5", color=color.blue, linewidth=2)
-// plot(ma2, title="MA 8", color=color.green, linewidth=2)
-// plot(ma3, title="MA 13", color=color.red, linewidth=2)
 
 // sar indikatoru kodu
 // Tooltip mesajları
@@ -703,8 +666,8 @@ table.cell(table2_id, 9, 3, text = str.tostring(timeframe.period), text_color = 
 // Tabloya SAR değerlerini ekleme
 // 📌 SAR Açıklaması (Tooltip)
 tooltip_sar = "📍 SAR (Parabolic Stop and Reverse):\n\n" +
-              "✅ SAR fiyatın altındaysa: **Yükseliş sinyali (Alım)** 📈\n" +
-              "❌ SAR fiyatın üzerindeyse: **Düşüş sinyali (Satış)** 📉\n" +
+              "✅ SAR fiyatın altındaysa: **UP sinyali (Alım)** 📈\n" +
+              "❌ SAR fiyatın üzerindeyse: **DW sinyali (Satış)** 📉\n" +
               "⚠️ SAR fiyat seviyesine yakınsa: **Belirsiz sinyal (Nötr)** ⚖️"
 
 // 📌 SAR Renk ve İkon Ayarlaması
@@ -717,17 +680,9 @@ table.cell(table2_id, 10, 2, text = sar_icon + " " + str.tostring(sar_val, forma
 
 // 📌 SAR Açıklaması (Tooltip)
 tooltip_sar_trendi = "📉 **Parabolic SAR (Stop and Reverse)**:\n\n" +
-              "🔴 **SAR fiyatın ÜSTÜNDE → Düşüş trendi** 📉\n" +
-              "🟢 **SAR fiyatın ALTINDA → Yükseliş trendi** 📈\n" +
+              "🔴 **SAR fiyatın ÜSTÜNDE → DW trendi** 📉\n" +
+              "🟢 **SAR fiyatın ALTINDA → UP trendi** 📈\n" +
               "⚪ **SAR fiyatla eşleşmiş → Nötr** ⚖️"
-
-// 📌 SAR Trend Yönü ve Renk Ayarı
-sar_trend_direction = sar_val > close ? "🔴 Düşüş 📉" : sar_val < close ? "🟢 Yükseliş 📈" : "⚪ Nötr ⚖️"
-sar_trend_color = sar_val > close ? color.red : sar_val < close ? color.green : color.yellow
-
-// 📌 Tablo Güncellemesi
-// table.cell(table_id, 0, 2, text = '📌 SAR Trend', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_sar_trendi)
-table.cell(table2_id, 10, 3, text = sar_trend_direction, text_color = color.black, bgcolor = sar_trend_color)
 
 
 //=====================================================================                                                                                      
@@ -737,8 +692,8 @@ table.cell(table2_id, 10, 3, text = sar_trend_direction, text_color = color.blac
 roc_length = input.int(14, title = 'ROC Length')
 
 // ROC Hesaplama Fonksiyonu
-f_roc(close, length) =>
-    roc = (close - close[length]) / close[length] * 100
+f_roc(c, length) =>
+    roc = (c - c[length]) / c[length] * 100
     roc
 
 tooltip_roc = 'ROC (Değişim Oranı):\n\nROC\'nin Yükselmesi: Pozitif momentum, potansiyel alım sinyali.\nROC\'nin Düşmesi: Negatif momentum, potansiyel satış sinyali.\nROC\'nin Sabit Kalması: Nötr durum.'
@@ -764,59 +719,17 @@ else
     roc_color := color.orange
     roc_color
 
-// 📌 Market Status Belirleme
-market_statusroc = 'Pos Mom'
-if roc_value > 20
-    market_statusroc := 'Overbought (▲)'
-    market_statusroc
-else if roc_value < -20
-    market_statusroc := 'Oversold (▼)'
-    market_statusroc
-else if roc_value < 0
-    market_statusroc := 'Neg Mom'
-    market_statusroc
-
-// 📌 Market Status Renk Ayarı
-market_status_colorroc = color.blue
-if roc_value > 20
-    market_status_colorroc := color.red
-    market_status_colorroc
-else if roc_value < -20
-    market_status_colorroc := color.green
-    market_status_colorroc
-else if roc_value < 0
-    market_status_colorroc := color.orange
-    market_status_colorroc
-
-// 📌 ROC Yönünü Belirleme
-roc_trend = '▬ Nötr'
-roc_trend_color = color.gray
-if roc_value > roc_value[1]
-    roc_trend := '▲ Yükseliş'
-    roc_trend_color := color.green
-    roc_trend_color
-else if roc_value < roc_value[1]
-    roc_trend := '▼ Düşüş'
-    roc_trend_color := color.red
-    roc_trend_color
-
 // 📌 Tabloda ROC Değerlerini Gösterme
 table.cell(table2_id, 11, 1, text = 'ROC', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_roc)
 table.cell(table2_id, 11, 2, text = str.tostring(roc_value, format.percent), text_color = color.black, bgcolor = roc_color)
-// table.cell(table2_id, 11, 3, text = 'Market Status', text_color = color.white, bgcolor = color.blue)
-table.cell(table2_id, 11, 3, text = market_statusroc, text_color = color.black, bgcolor = market_status_colorroc)
-
-// 📌 ROC Trend Yönünü Tabloya Ekleme
-table.cell(table2_id, 12, 1, text = 'Trend Yönü', text_color = color.white, bgcolor = color.blue)
-table.cell(table2_id, 12, 2, text = roc_trend, text_color = color.black, bgcolor = roc_trend_color)
 
 // 📌 Uyarı Şartları
 alertcondition(roc_value > 20, title = 'ROC Overbought', message = 'ROC is above 20, potential sell signal')
 alertcondition(roc_value < -20, title = 'ROC Oversold', message = 'ROC is below -20, potential buy signal')
 alertcondition(roc_value > 0 and roc_value <= 20, title = 'ROC Positive Momentum', message = 'ROC is between 0 and 20, positive momentum')
 alertcondition(roc_value < 0 and roc_value >= -20, title = 'ROC Negative Momentum', message = 'ROC is between 0 and -20, negative momentum')
-alertcondition(roc_value > roc_value[1], title = 'ROC Yükseliş', message = 'ROC artıyor, yükseliş trendi olabilir.')
-alertcondition(roc_value < roc_value[1], title = 'ROC Düşüş', message = 'ROC düşüyor, düşüş trendi olabilir.')
+alertcondition(roc_value > roc_value[1], title = 'ROC UP', message = 'ROC artıyor, UP trendi olabilir.')
+alertcondition(roc_value < roc_value[1], title = 'ROC DW', message = 'ROC düşüyor, DW trendi olabilir.')
 //=====================================================================  
 //====================================================================                                                                                      
 // Icimoku degelreri
@@ -842,33 +755,27 @@ plot(senkou_span_a, color = senkou_span_a_color, title = 'Senkou Span A')
 plot(senkou_span_b, color = senkou_span_b > senkou_span_a ? color.red : color.green, title = 'Senkou Span B')
 
 // Tooltip mesajları
-tooltip_tenkan = 'Tenkan-sen (Dönüş Çizgisi):\n\nFiyatın kısa vadeli ortalamasını gösterir.'
+tooltip_tenkan = 'Tenkan-sen (Dş Çizgisi):\n\nFiyatın kısa vadeli ortalamasını gösterir.'
 tooltip_kijun = 'Kijun-sen (Baz Çizgisi):\n\nFiyatın orta vadeli ortalamasını gösterir.'
 tooltip_senkou_span_a = 'Senkou Span A:\n\nTenkan-sen ve Kijun-sen\'in ortalamasıdır ve geleceğe 26 dönem projeksiyon yapar.'
 tooltip_senkou_span_b = 'Senkou Span B:\n\nFiyatın uzun vadeli ortalamasıdır ve geleceğe 26 dönem projeksiyon yapar.'
 tooltip_chikou = 'Chikou Span (Gecikme Çizgisi):\n\nKapanış fiyatının 26 dönem geriye kaydırılmasıdır.'
 
 // 📌 Ichimoku Tablosu Güncellenmiş Versiyon
-table.cell(ttable_id, 0, 7, text = 'Tenkan-sen', text_color = color.red, bgcolor = color.white, tooltip = 'Kısa vadeli trend göstergesi')
+table.cell(ttable_id, 0, 7, text = 'TENK-sen', text_color = color.red, bgcolor = color.white, tooltip = 'Kısa vadeli TRNDöstergesi')
 table.cell(ttable_id, 1, 7, text = str.tostring(tenkan_sen, format.mintick), text_color = color.white, bgcolor = tenkan_sen > kijun_sen ? color.green : color.red)
 
-table.cell(ttable_id, 0, 8, text = 'Kijun-sen', text_color = color.blue, bgcolor = color.white, tooltip = 'Orta vadeli trend göstergesi')
+table.cell(ttable_id, 0, 8, text = 'KIJN-sen', text_color = color.blue, bgcolor = color.white, tooltip = 'Orta vadeli TRNDöstergesi')
 table.cell(ttable_id, 1, 8, text = str.tostring(kijun_sen, format.mintick), text_color = color.white, bgcolor = tenkan_sen > kijun_sen ? color.green : color.red)
 
-table.cell(ttable_id, 0, 9, text = 'Senkou Span A', text_color = color.green, bgcolor = color.white, tooltip = 'Öncü A çizgisi')
+table.cell(ttable_id, 0, 9, text = 'SENK Sp A', text_color = color.green, bgcolor = color.white, tooltip = 'Öncü A çizgisi')
 table.cell(ttable_id, 1, 9, text = str.tostring(senkou_span_a, format.mintick), text_color = color.white, bgcolor = senkou_span_a > senkou_span_b ? color.green : color.red)
 
-table.cell(ttable_id, 0, 10, text = 'Senkou Span B', text_color = color.orange, bgcolor = color.white, tooltip = 'Öncü B çizgisi')
+table.cell(ttable_id, 0, 10, text = 'SENK Sp B', text_color = color.orange, bgcolor = color.white, tooltip = 'Öncü B çizgisi')
 table.cell(ttable_id, 1, 10, text = str.tostring(senkou_span_b, format.mintick), text_color = color.white, bgcolor = senkou_span_a > senkou_span_b ? color.green : color.red)
 
-table.cell(ttable_id, 0, 11, text = 'Chikou Span', text_color = color.black, bgcolor = color.white, tooltip = 'Gecikmeli fiyat göstergesi')
+table.cell(ttable_id, 0, 11, text = 'CHIK SP', text_color = color.black, bgcolor = color.white, tooltip = 'Gecikmeli fiyat göstergesi')
 table.cell(ttable_id, 1, 11, text = str.tostring(chikou_span, format.mintick), text_color = color.purple, bgcolor = chikou_span > close ? color.green : color.red)
-
-// 📌 Ichimoku Trend Yönü Ekleme
-trend_directionichi = close > senkou_span_a and close > senkou_span_b ? '▲ Yükseliş' : close < senkou_span_a and close < senkou_span_b ? '▼ Düşüş' : '▬ Nötr'
-trend_color = trend_directionichi == '▲ Yükseliş' ? color.green : trend_directionichi == '▼ Düşüş' ? color.red : color.yellow
-table.cell(ttable_id, 0, 12, text = 'Trend Yönü', text_color = color.black, bgcolor = color.white)
-table.cell(ttable_id, 1, 12, text = trend_directionichi, text_color = color.black, bgcolor = trend_color)
 
 //=====================================================================                                                                                      
 
@@ -892,30 +799,14 @@ f_adx(length, smoothing) =>
 var string adx_status = na
 var string trend_strength = na
 
-tooltip_adx = 'Trend Gücü: ADX 20’nin altındaysa trend zayıf, 20’nin üzerindeyse trend güçlüdür.\n ADX’in yönü, trendin güçlenip güçlenmediğini gösterir.'
+tooltip_adx = 'TRNDücü: ADX 20’nin altındaysa trend zayıf, 20’nin üzerindeyse TRNDüçlüdür.\n ADX’in y, trendin güçlenip güçlenmediğini gösterir.'
 // tooltip
 tooltip_di = '+DI / -DI (Yönlü Hareket Göstergeleri):\n\n+DI\'nin Yükselmesi: Pozitif yönlü hareketin güçlendiğini gösterir, potansiyel alım sinyali.\n-DI\'nin Yükselmesi: Negatif yönlü hareketin güçlendiğini gösterir, potansiyel satış sinyali.\n+DI ve -DI\'nin Kesişmesi: Trend değişim sinyali.'
 
 
-if adx_value < 20
-    trend_strength := 'Zayıf Trend'
-    trend_strength
-else
-    trend_strength := 'Güçlü Trend'
-    trend_strength
-
-if diPlus_value > diMinus_value
-    adx_status := 'Yukarı Trend'
-    adx_status
-else
-    adx_status := 'Aşağı Trend'
-    adx_status
-
 // 📌 ADX Değerlerini Tablo Hücrelerinde Gösterme
 if bar_index == 0
     table.cell(ttable_id, 0, 18, text = 'ADX', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_adx)
-    table.cell(ttable_id, 0, 19, text = 'ADX Durumu', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_adx)
-    table.cell(ttable_id, 0, 20, text = 'Trend Gücü', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_adx)
     table.cell(ttable_id, 0, 21, text = '+DI', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_di)
     table.cell(ttable_id, 0, 22, text = '-DI', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_di)
 
@@ -924,13 +815,11 @@ adx_bgcolor = adx_value < 20 ? color.red : color.green
 trend_arrow = adx_status == 'Yukarı Trend' ? '▲' : adx_status == 'Aşağı Trend' ? '▼' : '▬'
 
 table.cell(ttable_id, 1, 18, text = str.tostring(adx_value, format.mintick), text_color = color.black, bgcolor = adx_bgcolor)
-table.cell(ttable_id, 1, 19, text = trend_arrow + ' ' + adx_status, text_color = color.black, bgcolor = adx_bgcolor, tooltip = tooltip_adxaciklamali)
-table.cell(ttable_id, 1, 20, text = trend_strength, text_color = color.black, bgcolor = trend_strength == 'Güçlü Trend' ? color.green : color.red)
 table.cell(ttable_id, 1, 21, text = '▲ ' + str.tostring(diPlus_value, format.mintick), text_color = color.white, bgcolor = color.green)
 table.cell(ttable_id, 1, 22, text = '▼ ' + str.tostring(diMinus_value, format.mintick), text_color = color.white, bgcolor = color.red)
 
 // 🔔 Uyarılar
-alertcondition(adx_value > 20, title = 'ADX Yükseliyor', message = 'ADX yükseliyor, trend güçleniyor.')
+alertcondition(adx_value > 20, title = 'ADX Yükseliyor', message = 'ADX yükseliyor, TRNDüçleniyor.')
 alertcondition(diPlus_value > diMinus_value, title = '+DI > -DI', message = 'Pozitif yönlü hareket güçleniyor.')
 alertcondition(diPlus_value < diMinus_value, title = '+DI < -DI', message = 'Negatif yönlü hareket güçleniyor.')
 //=====================================================================                                                                                      
@@ -960,6 +849,7 @@ cci_color = cci_value > 100 ? color.green : cci_value < -100 ? color.red : color
 // CCI Değerini Gösterme
 table.cell(ttable_id, 0, 13, text = 'CCI', text_color = color.black, bgcolor = color.white, tooltip = tooltip_cci)
 table.cell(ttable_id, 1, 13, text = str.tostring(cci_value, format.mintick), text_color = color.black, bgcolor = cci_color)
+
 //=====================================================================                                                                                      
 
 
@@ -970,11 +860,11 @@ table.cell(ttable_id, 1, 13, text = str.tostring(cci_value, format.mintick), tex
 mfi_length = input.int(14, title = 'MFI Length')
 
 // MFI Hesaplama Fonksiyonu
-f_mfi(high, low, close, volume, length) =>
-    typical_price = (high + low + close) / 3
-    money_flow = typical_price * volume
-    positive_flow = ta.cum(ta.rma(ta.valuewhen(close > close[1], money_flow, 1), length))
-    negative_flow = ta.cum(ta.rma(ta.valuewhen(close < close[1], money_flow, 1), length))
+f_mfi(h, l, c, v, length) =>
+    typical_price = (h + l + c) / 3
+    money_flow = typical_price * v
+    positive_flow = ta.cum(ta.rma(ta.valuewhen(c > c[1], money_flow, 1), length))
+    negative_flow = ta.cum(ta.rma(ta.valuewhen(c < c[1], money_flow, 1), length))
     money_ratio = positive_flow / negative_flow
     mfi = 100 - 100 / (1 + money_ratio)
     mfi
@@ -1000,57 +890,10 @@ else if mfi_value <= 60
     mfi_color := color.yellow
     mfi_color
 
-// 📌 Market Status Belirleme
-market_status = 'Normal Buy'
-if mfi_value > 80
-    market_status := 'Overbought (▲)'
-    market_status
-else if mfi_value < 20
-    market_status := 'Oversold (▼)'
-    market_status
-else if mfi_value <= 40
-    market_status := 'Normal Sell'
-    market_status
-else if mfi_value <= 60
-    market_status := 'Neutral'
-    market_status
-
-// 📌 Market Status Renk Ayarı
-market_status_color = color.blue
-if mfi_value > 80
-    market_status_color := color.red
-    market_status_color
-else if mfi_value < 20
-    market_status_color := color.green
-    market_status_color
-else if mfi_value <= 40
-    market_status_color := color.orange
-    market_status_color
-else if mfi_value <= 60
-    market_status_color := color.yellow
-    market_status_color
-
-// 📌 MFI Yönünü Belirleme
-mfi_trend = '▬' // Nötr
-mfi_trend_color = color.gray
-if mfi_value > mfi_value[1]
-    mfi_trend := '▲ Yükseliş'
-    mfi_trend_color := color.green
-    mfi_trend_color
-else if mfi_value < mfi_value[1]
-    mfi_trend := '▼ Düşüş'
-    mfi_trend_color := color.red
-    mfi_trend_color
-
 // 📌 Tabloda MFI Değerlerini Gösterme
 table.cell(ttable_id, 0, 23, text = 'MFI', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_mfi)
 table.cell(ttable_id, 1, 23, text = str.tostring(mfi_value, format.mintick), text_color = color.black, bgcolor = mfi_color)
-table.cell(ttable_id, 0, 24, text = 'Market Status', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 24, text = market_status, text_color = color.black, bgcolor = market_status_color)
 
-// 📌 MFI Trend Yönünü Tabloya Ekleme
-table.cell(ttable_id, 0, 25, text = 'Trend Yönü', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 25, text = mfi_trend, text_color = color.black, bgcolor = mfi_trend_color)
 
 // 📌 Uyarı Şartları
 alertcondition(mfi_value > 80, title = 'MFI Overbought', message = 'MFI is above 80, potential sell signal')
@@ -1058,26 +901,23 @@ alertcondition(mfi_value < 20, title = 'MFI Oversold', message = 'MFI is below 2
 alertcondition(mfi_value > 20 and mfi_value <= 40, title = 'MFI Normal Sell', message = 'MFI is between 20 and 40, normal sell condition')
 alertcondition(mfi_value > 60 and mfi_value <= 80, title = 'MFI Normal Buy', message = 'MFI is between 60 and 80, normal buy condition')
 alertcondition(mfi_value > 40 and mfi_value <= 60, title = 'MFI Neutral', message = 'MFI is between 40 and 60, neutral condition')
-alertcondition(mfi_value > mfi_value[1], title = 'MFI Yükseliş', message = 'MFI artıyor, yükseliş trendi olabilir.')
-alertcondition(mfi_value < mfi_value[1], title = 'MFI Düşüş', message = 'MFI düşüyor, düşüş trendi olabilir.')
+alertcondition(mfi_value > mfi_value[1], title = 'MFI UP', message = 'MFI artıyor, UP trendi olabilir.')
+alertcondition(mfi_value < mfi_value[1], title = 'MFI DW', message = 'MFI düşüyor, DW trendi olabilir.')
 //=====================================================================                                                                                      
-
-//=====================================================================
 
 //=====================================================================                                                                                      
 // obv   degelreri
 //=====================================================================
 // OBV Hesaplama Fonksiyonu
-// OBV Hesaplama Fonksiyonu
 // 📌 OBV Fonksiyonu
-f_obv(close, volume) =>
-    ta.cum(close > close[1] ? volume : close < close[1] ? -volume : 0)
+f_obv(c, v) =>
+    ta.cum(c > c[1] ? v : c < c[1] ? -v : 0)
 
 // 📌 OBV Değeri
 obv_value = f_obv(close, volume)
 
 // 📌 OBV Açıklaması
-tooltip_obv = 'OBV (On-Balance Volume):\n\nOBV\'nin Yükselmesi: Fiyat artışı ile desteklenen hacim, potansiyel alım sinyali.\nOBV\'nin Düşmesi: Fiyat düşüşü ile desteklenen hacim, potansiyel satış sinyali.\nOBV\'nin Sabit Kalması: Nötr durum.'
+tooltip_obv = 'OBV (On-Balance Volume):\n\nOBV\'nin Yükselmesi: Fiyat artışı ile desteklenen hacim, potansiyel alım sinyali.\nOBV\'nin Düşmesi: Fiyat DWü ile desteklenen hacim, potansiyel satış sinyali.\nOBV\'nin Sabit Kalması: Nötr durum.'
 
 // 📌 OBV Renk Belirleme
 obv_color = color.gray
@@ -1088,45 +928,21 @@ else if obv_value < obv_value[1]
     obv_color := color.red
     obv_color
 
-// 📌 Market Status Belirleme
-market_statusobv = 'Neutral'
-if obv_value > obv_value[1]
-    market_statusobv := 'Accumulation (▲)'
-    market_statusobv
-else if obv_value < obv_value[1]
-    market_statusobv := 'Distribution (▼)'
-    market_statusobv
-
-// 📌 Market Status Renk Ayarı
-market_status_colorobv = color.yellow
-if obv_value > obv_value[1]
-    market_status_colorobv := color.green
-    market_status_colorobv
-else if obv_value < obv_value[1]
-    market_status_colorobv := color.red
-    market_status_colorobv
-
-// 📌 OBV Yönünü Belirleme
+// 📌 OBV Ynü Belirleme
 obv_trend = '▬ Nötr'
 obv_trend_color = color.gray
 if obv_value > obv_value[1]
-    obv_trend := '▲ Yükseliş'
+    obv_trend := '▲ UP'
     obv_trend_color := color.green
     obv_trend_color
 else if obv_value < obv_value[1]
-    obv_trend := '▼ Düşüş'
+    obv_trend := '▼ DW'
     obv_trend_color := color.red
     obv_trend_color
 
 // 📌 OBV Değerlerini Tabloya Ekleme
 table.cell(ttable_id, 0, 27, text = 'OBV', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_obv)
 table.cell(ttable_id, 1, 27, text = str.tostring(obv_value, format.volume), text_color = color.black, bgcolor = obv_color)
-table.cell(ttable_id, 0, 28, text = 'Market Status', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 28, text = market_statusobv, text_color = color.black, bgcolor = market_status_colorobv)
-
-// 📌 OBV Trend Yönünü Tabloya Ekleme
-table.cell(ttable_id, 0, 29, text = 'Trend Yönü', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 29, text = obv_trend, text_color = color.black, bgcolor = obv_trend_color)
 
 // 📌 Uyarı Şartları
 alertcondition(obv_value > obv_value[1], title = 'OBV Accumulation', message = 'OBV is increasing, indicating accumulation')
@@ -1139,9 +955,9 @@ alertcondition(obv_value == obv_value[1], title = 'OBV Neutral', message = 'OBV 
 //=====================================================================
 
 // 📌 VWAP Hesaplama Fonksiyonu
-f_vwap(high, low, close, volume) =>
-    typical_price = (high + low + close) / 3
-    ta.cum(typical_price * volume) / ta.cum(volume)
+f_vwap(h, l, c, v) =>
+    typical_price = (h + l + c) / 3
+    ta.cum(typical_price * v) / ta.cum(v)
 
 // 📌 VWAP Değeri
 vwap_value = f_vwap(high, low, close, volume)
@@ -1158,52 +974,16 @@ else if close < vwap_value
     vwap_color := color.green
     vwap_color
 
-// 📌 Market Status Belirleme
-market_statusvwap = 'VWAP\'de'
-if close > vwap_value
-    market_statusvwap := 'VWAP\'nin Altında (▲)'
-    market_statusvwap
-else if close < vwap_value
-    market_statusvwap := 'VWAP\'nin Üzerinde (▼)'
-    market_statusvwap
-
-// 📌 Market Status Renk Ayarı
-market_status_colorvwap = color.yellow
-if close > vwap_value
-    market_status_colorvwap := color.red
-    market_status_colorvwap
-else if close < vwap_value
-    market_status_colorvwap := color.green
-    market_status_colorvwap
-
-// 📌 VWAP Yönünü Belirleme
-vwap_trend = '▬ Nötr'
-vwap_trend_color = color.gray
-if vwap_value > vwap_value[1]
-    vwap_trend := '▲ Yükseliş'
-    vwap_trend_color := color.green
-    vwap_trend_color
-else if vwap_value < vwap_value[1]
-    vwap_trend := '▼ Düşüş'
-    vwap_trend_color := color.red
-    vwap_trend_color
-
 // 📌 VWAP Değerlerini Tabloya Ekleme
 table.cell(ttable_id, 0, 29, text = 'VWAP', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_vwap)
 table.cell(ttable_id, 1, 29, text = str.tostring(vwap_value, format.mintick), text_color = color.black, bgcolor = vwap_color)
-table.cell(ttable_id, 0, 30, text = 'Market Status', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 30, text = market_statusvwap, text_color = color.black, bgcolor = market_status_colorvwap)
-
-// 📌 VWAP Trend Yönünü Tabloya Ekleme
-table.cell(ttable_id, 0, 31, text = 'Trend Yönü', text_color = color.white, bgcolor = color.blue)
-table.cell(ttable_id, 1, 31, text = vwap_trend, text_color = color.black, bgcolor = vwap_trend_color)
 
 // 📌 Uyarı Şartları
 alertcondition(close > vwap_value, title = 'VWAP\'nin Altında', message = 'Fiyat VWAP\'nin üzerinde, potansiyel alım sinyali')
 alertcondition(close < vwap_value, title = 'VWAP\'nin Üzerinde', message = 'Fiyat VWAP\'nin altında, potansiyel satış sinyali')
 alertcondition(close == vwap_value, title = 'VWAP\'de', message = 'Fiyat VWAP\'de, nötr durum')
-alertcondition(vwap_value > vwap_value[1], title = 'VWAP Yükseliş', message = 'VWAP artıyor, yükseliş trendi olabilir.')
-alertcondition(vwap_value < vwap_value[1], title = 'VWAP Düşüş', message = 'VWAP düşüyor, düşüş trendi olabilir.')
+alertcondition(vwap_value > vwap_value[1], title = 'VWAP UP', message = 'VWAP artıyor, UP trendi olabilir.')
+alertcondition(vwap_value < vwap_value[1], title = 'VWAP DW', message = 'VWAP düşüyor, DW trendi olabilir.')
 //=====================================================================
 
 // //=====================================================================                                                                                      
@@ -1213,10 +993,10 @@ alertcondition(vwap_value < vwap_value[1], title = 'VWAP Düşüş', message = '
 williams_length = input.int(14, title = 'Williams %R Length')
 
 // 📌 Williams %R Hesaplama Fonksiyonu
-f_williams_r(high, low, close, length) =>
-    highest_high = ta.highest(high, length)
-    lowest_low = ta.lowest(low, length)
-    (highest_high - close) / (highest_high - lowest_low) * -100
+f_williams_r(h, l, c, length) =>
+    hh_local = ta.highest(h, length)
+    ll_local = ta.lowest(l, length)
+    (hh_local - c) / (hh_local - ll_local) * -100
 
 // 📌 Williams %R Değeri (request.security kaldırıldı)
 williams_r_value = f_williams_r(high, low, close, williams_length)
@@ -1227,17 +1007,12 @@ tooltip_williams_r = 'Williams %R:\n\n-20\'nin Üzerinde: Aşırı alım bölges
 // 📌 Williams %R Renk Belirleme
 williams_r_color = williams_r_value > -20 ? color.red : williams_r_value < -80 ? color.green : color.gray
 
-// 📌 Market Status ve Trend Belirleme
-market_status_williams = williams_r_value > -20 ? 'Overbought (▲)' : williams_r_value < -80 ? 'Oversold (▼)' : 'Nötr'
-market_status_color_williams = williams_r_value > -20 ? color.red : williams_r_value < -80 ? color.green : color.yellow
+// 📌 Williams %R Değerlerini Tek Bir Hücrede Gösterme§§
+// Satır başlığı
+table.cell(ttable_id, 0, 31, text = 'W%R', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_williams_r)
 
-// 📌 Williams %R Trend Yönü
-williams_trend = williams_r_value > williams_r_value[1] ? '▲ Yükseliş' : williams_r_value < williams_r_value[1] ? '▼ Düşüş' : '▬ Nötr'
-williams_trend_color = williams_r_value > williams_r_value[1] ? color.green : williams_r_value < williams_r_value[1] ? color.red : color.gray
-
-// 📌 Williams %R Değerlerini Tek Bir Hücrede Gösterme
-table.cell(ttable_id, 0, 31, text = 'Williams %R', text_color = color.white, bgcolor = color.blue, tooltip = tooltip_williams_r)
-table.cell(ttable_id, 1, 31, text = str.tostring(williams_r_value, format.percent) + ' | ' + market_status_williams + ' | ' + williams_trend, text_color = color.black, bgcolor = williams_r_color)
+// Satır 1: W%R Değeri
+table.cell(ttable_id, 1, 31, text = str.tostring(williams_r_value, format.percent), text_color = color.black, bgcolor = williams_r_color)
 
 // 📌 Uyarı Şartları (Azaltılmış ve Optimize Edilmiş)
 alertcondition(williams_r_value > -20, title = 'Williams %R Aşırı Alım', message = 'Williams %R -20\'nin üzerinde, potansiyel satış sinyali')
@@ -1247,17 +1022,6 @@ alertcondition(williams_r_value > williams_r_value[1] or williams_r_value < will
 //=====================================================================
 //=====================================================================
 // Mesaj etiketleri
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
-//=====================================================================
 //=====================================================================
 
 // ** ---> Inputs ------------- {
@@ -1284,9 +1048,11 @@ rsi_mfi = math.avg(rsi, mf)
 
 //------------------- }
 
-bool p_mom = rsi_mfi[1] < pmom and rsi_mfi > pmom and rsi_mfi > nmom and ta.change(ta.ema(close, 5)) > 0
+ema_val_5 = ta.ema(close, 5)
+ema_change_5 = ta.change(ema_val_5)
 
-bool n_mom = rsi_mfi < nmom and ta.change(ta.ema(close, 5)) < 0
+p_mom = rsi_mfi[1] < pmom and rsi_mfi > pmom and rsi_mfi > nmom and ema_change_5 > 0
+n_mom = rsi_mfi < nmom and ema_change_5 < 0
 // //  ---> Momentums ------------- {
 
 if p_mom
@@ -1342,9 +1108,6 @@ if negative and not negative[1]
     label.new(bar_index, max + Band / 2, '', color = color.red, size = size.small)
 if positive and not positive[1]
     label.new(bar_index, min - Band / 2, '', color = color.green, size = size.small, style = label.style_label_up)
-
-// plotcandle(open, high, low, close, color = Barcol, wickcolor = Barcol, bordercolor = Barcol)
-// barcolor(color = Barcol)
 
 
 // SPOT Trading Alerts

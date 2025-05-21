@@ -311,3 +311,23 @@ table.cell(trend_table, 0, 11, wr_icon, text_color=color.white, bgcolor=wr_score
 // WR (satır 1)
 table.cell(trend_table, 1, 10, "WR%", text_color=color.white, bgcolor=color.gray)
 table.cell(trend_table, 1, 11, wr_icon, text_color=color.white, bgcolor=wr_score == 1 ? color.new(color.green, 70) : wr_score == -1 ? color.new(color.red, 70) : color.new(color.gray, 80))
+// =========================
+// KOMBİNE SKOR HESAPLAMA
+// =========================
+
+total_score = trend_score + momentum_score + volume_score + volatility_score + direction_score + wr_score
+master_score = total_score / 6
+
+// Skor Değerlendirme İkonu
+master_icon = master_score >= 1 ? "🚀 AL" : master_score <= -1 ? "⛔ SAT" : "⚖️ NÖTR"
+
+// Tabloya Ekleme (satır 5, sütun 0 ve 1)
+table.cell(trend_table, 5, 0, "ALL", text_color=color.white, bgcolor=color.gray)
+table.cell(trend_table, 5, 1, master_icon, text_color=color.white, bgcolor=master_score > 0 ? color.new(color.green, 70) : master_score < 0 ? color.new(color.red, 70) : color.new(color.gray, 80))
+
+// Grafik Üzerinde Etiket (isteğe bağlı)
+label.new(bar_index, na, master_icon, yloc=yloc.price, style=label.style_label_down, textcolor=color.white, size=size.small, color=color.new(color.black, 90))
+
+// Alert Koşulları
+alertcondition(master_score >= 1, title="AL Sinyali", message="Combin stratejisi AL sinyali verdi 🚀")
+alertcondition(master_score <= -1, title="SAT Sinyali", message="Combin stratejisi SAT sinyali verdi ⛔")
